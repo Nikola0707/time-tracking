@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isDaily: false,
-  isWeekly: false,
+  isWeekly: true,
   isMontly: false,
 };
 

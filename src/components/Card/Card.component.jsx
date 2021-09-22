@@ -1,3 +1,6 @@
+// redux
+import { useSelector } from "react-redux";
+
 import { ReactComponent as Work } from "../../assets/icon-work.svg";
 import { ReactComponent as Play } from "../../assets/icon-play.svg";
 import { ReactComponent as Study } from "../../assets/icon-study.svg";
@@ -14,6 +17,9 @@ const Card = ({
   montlyCurrent,
   montlyPrevious,
 }) => {
+  // Redux State
+  const { isDaily, isWeekly, isMontly } = useSelector((state) => state.type);
+
   return (
     <div className="card-container">
       <div className="top">
@@ -29,8 +35,17 @@ const Card = ({
           <p>{title}</p>
           <p>---</p>
         </div>
-        <p className="hours">{dailyCurrent}hrs</p>
-        <p className="last">Last Week - {dailyPrevious}hrs</p>
+        <p className="hours">
+          {isDaily ? dailyCurrent : ""}
+          {isWeekly ? weeklyCurrent : ""}
+          {isMontly ? montlyCurrent : ""}
+          hrs
+        </p>
+        <p className="last">
+          {isDaily ? `Yesterday - ${dailyPrevious}hrs` : ""}
+          {isWeekly ? `Last Week- ${weeklyPrevious}hrs` : ""}
+          {isMontly ? `LastMonth - ${montlyPrevious}hrs` : ""}
+        </p>
       </div>
     </div>
   );
