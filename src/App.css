@@ -28,6 +28,25 @@ body {
   --desaturated-blue: #6f76c8;
   --pale-blue: #bdc1ff;
 }
+.work {
+  background-color: var(--light-red-work);
+}
+.play {
+  background-color: var(--soft-blue-play);
+}
+.study {
+  background-color: var(--light-red-study);
+}
+.exercise {
+  background-color: var(--limegreen-exercise);
+}
+.social {
+  background-color: var(--violet-social);
+}
+.selfcare {
+  background-color: var(--soft-orange);
+}
+
 .wrapper {
   width: 80%;
   height: 100%;
@@ -103,7 +122,6 @@ li:active {
 .card-container {
   width: 250px;
   height: 200px;
-  background: var(--light-red-work);
   border-radius: 15px;
   color: #fff;
 }
@@ -120,7 +138,7 @@ li:active {
   border-radius: 14px;
   cursor: pointer;
 }
-.details:hover{
+.details:hover {
   background: #3a3e6c;
 }
 .details-title {
@@ -135,4 +153,72 @@ li:active {
 .last {
   font-size: 15px;
   color: var(--pale-blue);
+}
+/* Responsivenest */
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .wrapper {
+    display: block;
+  }
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .user-container {
+    width: 80%;
+    margin: 20px auto;
+  }
+  .choose ul {
+    display: flex;
+    justify-content: space-around;
+    font-size: 23px;
+  }
+  .card-container {
+    margin-bottom: 100px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+  .wrapper {
+    width: 90%;
+  }
+  .wrapper,
+  .card {
+    display: block;
+  }
+  .user-container {
+    width: 100%;
+    margin: 20px auto;
+  }
+  .about {
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+  .report-for {
+    margin-top: 0;
+  }
+  .user-name {
+    font-size: 25px;
+  }
+  .choose ul {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+  }
+  .card-container {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .hoursAndTime {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .hours,
+  .last {
+    margin: 0;
+  }
+  .last {
+    font-size: 16px;
+  }
 }

@@ -21,31 +21,49 @@ const Card = ({
   const { isDaily, isWeekly, isMontly } = useSelector((state) => state.type);
 
   return (
-    <div className="card-container">
+    <div
+      className={
+        title === "Work"
+          ? "card-container work"
+          : title === "Play"
+          ? "card-container play"
+          : title === "Study"
+          ? "card-container study"
+          : title === "Exercise"
+          ? "card-container exercise"
+          : title === "Social"
+          ? "card-container social"
+          : title === "Self Care"
+          ? "card-container selfcare"
+          : "card-container"
+      }
+    >
       <div className="top">
         {title === "Work" ? <Work /> : ""}
         {title === "Play" ? <Play /> : ""}
         {title === "Study" ? <Study /> : ""}
         {title === "Exercise" ? <Exercise /> : ""}
         {title === "Social" ? <Social /> : ""}
-        {title === "Selfcare" ? <Selfcare /> : ""}
+        {title === "Self Care" ? <Selfcare /> : ""}
       </div>
       <div className="details">
         <div className="details-title">
           <p>{title}</p>
           <p>---</p>
         </div>
-        <p className="hours">
-          {isDaily ? dailyCurrent : ""}
-          {isWeekly ? weeklyCurrent : ""}
-          {isMontly ? montlyCurrent : ""}
-          hrs
-        </p>
-        <p className="last">
-          {isDaily ? `Yesterday - ${dailyPrevious}hrs` : ""}
-          {isWeekly ? `Last Week- ${weeklyPrevious}hrs` : ""}
-          {isMontly ? `LastMonth - ${montlyPrevious}hrs` : ""}
-        </p>
+        <div className="hoursAndTime">
+          <p className="hours">
+            {isDaily ? dailyCurrent : ""}
+            {isWeekly ? weeklyCurrent : ""}
+            {isMontly ? montlyCurrent : ""}
+            hrs
+          </p>
+          <p className="last">
+            {isDaily ? `Yesterday - ${dailyPrevious}hrs` : ""}
+            {isWeekly ? `Last Week- ${weeklyPrevious}hrs` : ""}
+            {isMontly ? `LastMonth - ${montlyPrevious}hrs` : ""}
+          </p>
+        </div>
       </div>
     </div>
   );
